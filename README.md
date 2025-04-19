@@ -1,117 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Text to Speech Converter</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #7F7FD5, #86A8E7, #91EAE4);
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
+name: Text-to-Speech Converter using Python & gTTS
+description: |
+  This is a simple Python project that converts the content of a text file into speech using Google's gTTS (Google Text-to-Speech) API.
+  The output is saved as an MP3 audio file.
 
-    .container {
-      max-width: 800px;
-      margin: 50px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
+structure:
+  - text.txt: Input file with the text to convert
+  - text.mp3: Output audio file (generated)
+  - main.py: Python script for conversion
 
-    h1 {
-      text-align: center;
-      color: #4b4b4b;
-    }
+features:
+  - Converts text to clear audio
+  - Saves as `.mp3` file
+  - Easy to customize
+  - Uses free gTTS library
 
-    p {
-      line-height: 1.6;
-    }
+technologies_used:
+  - Python 3.x
+  - gTTS (Google Text-to-Speech)
 
-    code {
-      background-color: #f4f4f4;
-      padding: 3px 6px;
-      border-radius: 5px;
-      font-size: 15px;
-    }
+getting_started:
+  instructions:
+    - Clone the repository
+    - Install dependencies
+    - Add your text in `text.txt`
+    - Run the script using: `python main.py`
+  install_dependencies:
+    - pip install gTTS
+  run_script:
+    - python main.py
 
-    .section {
-      margin-top: 20px;
-    }
+how_it_works:
+  code: |
+    from gtts import gTTS
+    import os
 
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #4e8cff;
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      margin-top: 20px;
-    }
+    with open("text.txt", "r") as abc:
+        text = abc.read()
 
-    .btn:hover {
-      background-color: #356fe0;
-    }
+    obj = gTTS(text=text, lang="en", slow=False)
+    obj.save("text.mp3")
 
-    ul {
-      padding-left: 20px;
-    }
-  </style>
-</head>
-<body>
+    # Optional - For Windows
+    os.system("start text.mp3")
 
-  <div class="container">
-    <h1>📢 Text to Speech Converter (Python)</h1>
-    
-    <div class="section">
-      <h2>📄 Description</h2>
-      <p>This is a simple Python project that converts the content of a text file (<code>text.txt</code>) into speech using Google's <code>gTTS</code> (Google Text-to-Speech) API. The output is saved as an <code>MP3</code> audio file.</p>
-    </div>
+output:
+  description: |
+    The script creates an audio file from the text and plays it (optional on Windows).
+    Ideal for accessibility tools, voice assistants, or educational purposes.
 
-    <div class="section">
-      <h2>⚙️ Technologies Used</h2>
-      <ul>
-        <li>Python</li>
-        <li>gTTS (Google Text-to-Speech)</li>
-        <li>HTML & CSS (for this page)</li>
-      </ul>
-    </div>
+useful_links:
+  - gTTS Documentation: https://pypi.org/project/gTTS/
+  - gTTS GitHub Repo: https://github.com/pndurette/gTTS
 
-    <div class="section">
-      <h2>🚀 How to Run</h2>
-      <ol>
-        <li>Make sure you have Python installed (Recommended: Python 3.10)</li>
-        <li>Install required package:
-          <br><code>pip install gTTS</code>
-        </li>
-        <li>Create a file named <code>text.txt</code> with your desired text.</li>
-        <li>Run the script below:</li>
-      </ol>
+contribute:
+  - Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-      <pre><code>from gtts import gTTS
-import os
+license:
+  - This project is licensed under the MIT License.
 
-with open("text.txt", "r") as abc:
-    text = abc.read()
-
-obj = gTTS(text=text, lang="en", slow=False)
-obj.save("text.mp3")
-
-# Optional - Play the audio (Windows only)
-os.system("start text.mp3")</code></pre>
-    </div>
-
-    <div class="section">
-      <h2>🎧 Output</h2>
-      <p>The script will generate an audio file <code>text.mp3</code> in the same directory and optionally play it.</p>
-    </div>
-
-    <a href="https://pypi.org/project/gTTS/" target="_blank" class="btn">🔗 Learn more about gTTS</a>
-  </div>
-
-</body>
-</html>
+author: Krishna Mohan Yadav
